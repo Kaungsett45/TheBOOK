@@ -6,7 +6,7 @@ import {
 import Home from '../pages/Home.jsx'
 import Layout from "../pages/Layout.jsx";
 import Create from '../pages/Create.jsx'
-import Search from '../pages/Search.jsx'
+import Search from '../pages/Search&pf.jsx'
 
 const router = createBrowserRouter([
   {
