@@ -1,4 +1,5 @@
 import React from 'react'
+import Adsone from '../assets/icon/ads-one.png'
 import cate from '../assets/icon/category-icon.png'
 import fav from '../assets/icon/fav-icon.png'
 import logo from '../assets/logo/logo.png'
@@ -14,7 +15,7 @@ export default function navigation() {
 ];
 
   return (
-    <div className=" h-auto">
+    <div className=" h-auto  min-w-[210px]">
             
         <img src={logo} alt="Logo" className=""/>
         
@@ -28,6 +29,10 @@ export default function navigation() {
               </p>
             </div>
           ))}
+      </div>
+
+       <div className='cursor-pointer '>
+    <img src={Adsone} alt="" className='h-[160px]  object-fit rounded-sm' />
       </div>
 
     </div>

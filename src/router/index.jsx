@@ -3,20 +3,16 @@ import {
   
 } from "react-router-dom";
 
-import Home from '../pages/Home.jsx'
 import Layout from "../pages/Layout.jsx";
-import Create from '../pages/Create.jsx'
+import Create from '../pages/Books.jsx'
 import Search from '../pages/Search&pf.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "",
     element: <Layout/>,
     children:[
-        {
-            path:"",
-            element:<Home/>
-        },
+        
         {
             path:"create",
             element:<Create/>

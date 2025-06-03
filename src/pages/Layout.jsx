@@ -1,14 +1,21 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Search from './Search&pf.jsx'
+
 import Nav from '../components/navigation.jsx'
 export default function Layout() {
   return (
-    <div className='flex '>
+    <>
+    <div className='flex'>
         <Nav/>
-        <Search/>
-
-            <Outlet/>
+        <div className='w-full'>
+         <Search/>
+         
+         </div>
     </div>
+      
+       
+            <Outlet/>
+    </>
   )
 }
