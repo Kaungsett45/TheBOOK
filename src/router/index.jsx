@@ -4,18 +4,16 @@ import {
 } from "react-router-dom";
 
 import Layout from "../pages/Layout.jsx";
-import Create from '../pages/Books.jsx'
-import Search from '../pages/Search&pf.jsx'
+import Books from "../components/Books.jsx";
 
 const router = createBrowserRouter([
   {
     path: "",
     element: <Layout/>,
     children:[
-        
         {
-            path:"create",
-            element:<Create/>
+            path:"",
+            element:<Books/>
         },
        
     ]

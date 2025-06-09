@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Search() {
   return (
-    <div className='ml-12 '>
+    <div >
       <div className='text-white rounded-md p-2 flex justify-center '>
         <button className='bg-[#919191]  text-sm px-4 py-2 rounded-md mx-1'>ALL</button>
         <input 
