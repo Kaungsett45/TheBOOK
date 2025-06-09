@@ -1,7 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Search from '../components/Search&pf.jsx'
-
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import './style.css'
 import Nav from '../components/navigation.jsx'
 import Books from '../components/Books.jsx'
 export default function Layout() {
@@ -9,10 +10,15 @@ export default function Layout() {
     <>
     <div className='flex '>
         <Nav/>
-        <div className=' flex flex-col items-start ml-12 border-2 border-red-400 '>
-         <Search/>
-          <Outlet/>
-         </div>
+            <SwitchTransition>
+              <CSSTransition timeout={200} classNames='fade' key={location.pathname}>
+            
+                  <div className=' flex flex-col items-start ml-12 '>
+                  <Search/>
+                    <Outlet/>
+                  </div>
+              </CSSTransition>
+            </SwitchTransition>
     </div>
       
        
