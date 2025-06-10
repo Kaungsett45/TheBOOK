@@ -8,7 +8,7 @@ import Books from '../components/Books.jsx'
 export default function Layout() {
   return (
     <>
-    <div className='flex '>
+    <div className=' '>
         <Nav/>
             <SwitchTransition>
               <CSSTransition timeout={200} classNames='fade' key={location.pathname}>

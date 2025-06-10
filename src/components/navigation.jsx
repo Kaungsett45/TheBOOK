@@ -15,25 +15,25 @@ export default function navigation() {
 ];
 
   return (
-    <div className=" h-auto  min-w-[210px]">
+    <div className="flex justify-between ">
             
         <img src={logo} alt="Logo" className=""/>
         
-        <h2 className="mt-12 font-semibold text-[#484848] text-xs">MENU</h2>
-      <div className='bg-[#E9DCC1] m-4 p-6 rounded-2xl'>
-          {navItems.map((item, index) => (
-            <div key={index} className='mt-6 first:mt-0 group flex hover:text-white cursor-pointer items-center gap-2'>
-              <img src={item.icon} alt="" className='w-8 group-hover:opacity-60 transition duration-200' />
-              <p className='group-hover:text-[#B5B5B5] font-semibold font-pri_font text-xs transition duration-200'>
-                {item.label}
-              </p>
-            </div>
-          ))}
-      </div>
+        <div className='flex items-center space-x-12'>
+      
+            <p>Home</p>
+            <p>Books</p>
+            <p>Author</p>
+          <img
+  src={Adsone}
+  alt="Advertisement"
+  className="w-12 h-12 object-cover rounded-full shadow-md"
+/>
+   <p>Setting</p>
+         
+         </div>
 
-       <div className='cursor-pointer '>
-    <img src={Adsone} alt="" className='h-[160px]  object-fit rounded-sm' />
-      </div>
+     
 
     </div>
   )
