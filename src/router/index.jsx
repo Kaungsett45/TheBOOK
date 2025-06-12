@@ -4,7 +4,9 @@ import {
 } from "react-router-dom";
 
 import Layout from "../pages/Layout.jsx";
-import Books from "../components/Books.jsx";
+import Books from "../pages/Books.jsx";
+import Boooks from "../components/Books.jsx";
+import Authors from "../pages/Authors.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,14 @@ const router = createBrowserRouter([
     children:[
         {
             path:"",
+            element:<Boooks/>
+        },
+        {
+            path:"authors",
+            element:<Authors/>
+        },
+        {
+            path:"books",
             element:<Books/>
         },
        

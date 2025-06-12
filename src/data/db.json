@@ -1,0 +1,36 @@
+{
+    "books":[
+        {
+            "id":1,
+            "title":"To Kill a Mockingbird",        
+            "author":"Harper Lee",
+            "publishedYear":1960,
+            "genre":"Fiction",
+            "summary":"A novel about the serious issues of"
+        },
+        {
+            "id":2,
+            "title":"1984",
+            "author":"George Orwell",
+            "publishedYear":1949,
+            "genre":"Dystopian",
+            "summary":"A story about government surveillance and totalitarianism."
+        },
+        {
+            "id":3,
+            "title":"Pride and Prejudice",
+            "author":"Jane Austen",
+            "publishedYear":1813,
+            "genre":"Romance",
+            "summary":"A romantic novel that critiques the British landed gentry at the end of the 18th century."
+        }   ,
+           {
+            "id":4,
+            "title":"The Great Gatsby",
+            "author":"F. Scott Fitzgerald",
+            "publishedYear":1925,
+            "genre":"Tragedy",
+            "summary":"A story about the American dream and the disillusionment of the Jazz Age."       
+        }
+            ]
+}
