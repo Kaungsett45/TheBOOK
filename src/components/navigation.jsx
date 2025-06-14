@@ -5,6 +5,7 @@ import fav from '../assets/icon/fav-icon.png'
 import logo from '../assets/logo/logo.png'
 import cart from '../assets/icon/cart-icon.png'
 import set from '../assets/icon/setting-icon.png'
+import { Link } from 'react-router-dom'
 export default function navigation() {
 
   const navItems = [
@@ -16,9 +17,9 @@ export default function navigation() {
 
   return (
     <div className="flex justify-between ">
-            
-        <img src={logo} alt="Logo" className=""/>
-        
+        <Link to="/" className='flex items-center '>
+        <h1 className='font-2xl font-semibold '>The BOOKS</h1>
+        </Link>
         <div className='flex items-center space-x-12'>
       
             <p>Home</p>
