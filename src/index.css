@@ -1,7 +1,12 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap');
+@import "tailwindcss";
+
+
+
+
 body{
+    
     margin:26px 140px;
     font-family: 'Inter', sans-serif;
-
+    background-color: #F1EFEC;
 }

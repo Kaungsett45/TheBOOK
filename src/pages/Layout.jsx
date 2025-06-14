@@ -4,7 +4,7 @@ import Search from '../components/Search&pf.jsx'
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import './style.css'
 import Nav from '../components/navigation.jsx'
-import Books from '../components/Books.jsx'
+import Books from '../components/TopBooks.jsx'
 export default function Layout() {
   return (
     <>

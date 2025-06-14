@@ -1,50 +1,39 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-function useFetch  (url) {
+// src/hooks/usefetch.jsx
+import { useEffect, useState } from "react";
 
-    let [data,setData] = useState(null);
-    let [loading,setLoading] = useState(true);
-    let [error,setError] = useState(null);  
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        let abortController = new AbortController();
-        let signal = abortController.signal;
+  useEffect(() => {
+    const controller = new AbortController();
 
-        setLoading(true);
-        fetch
+    const fetchData = async () => {
+      try {
+        const res = await fetch(url, { signal: controller.signal });
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const json = await res.json();
+        setData(json);
+        setLoading(false);
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          setError(err.message);
+          setLoading(false);
+        }
+      }
+    };
 
+    fetchData();
 
+    return () => {
+      controller.abort();
+    };
+  }, [url]);
 
-    return (
-    <div>
-      
-    </div>
-  )
-(url, {
-    signal
-}).then(res =>{
-    if(!res.ok){
-        throw Error('something went wrong');
-    }
-    return res.json();
-})
-.then (data=>{
-    setData(data);
-    setLoading(false);
-    setError(null);
-})
-.catch(e =>{
-    setError(e.message);
-
-})
-
-
-return()=>{
-    abortController.abort();
-    
-}
-},[url]);
-    return {data, loading, error};
+  return { data, loading, error };
 }
 
 export default useFetch;

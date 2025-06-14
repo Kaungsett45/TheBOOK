@@ -5,7 +5,8 @@ import {
 
 import Layout from "../pages/Layout.jsx";
 import Books from "../pages/Books.jsx";
-import Boooks from "../components/Books.jsx";
+import BooksDetail from "../pages/BooksDetail.jsx";
+import TopBooks from "../components/TopBooks.jsx";
 import Authors from "../pages/Authors.jsx";
 
 const router = createBrowserRouter([
@@ -15,11 +16,15 @@ const router = createBrowserRouter([
     children:[
         {
             path:"",
-            element:<Boooks/>
+            element:<TopBooks/>
         },
         {
             path:"authors",
             element:<Authors/>
+        },
+        {
+            path:"/books/:id",
+            element:<BooksDetail/>
         },
         {
             path:"books",
