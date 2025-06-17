@@ -14,12 +14,16 @@ export default function BooksDetail() {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {book && (
-        <div className="flex flex-col items-center mt-12">
-          <img src={book.image} alt={book.title} className="w-48 h-64 object-cover rounded" />
-          <h1 className="text-2xl font-bold mt-4">{book.title}</h1>
-          <p className="text-gray-600 mt-2">{book.summary}</p>
-          <p className="text-lg font-semibold mt-4">${book.price}</p>
-          <button className="bg-[#27548A] px-6 py-2 rounded-full text-white mt-4">Add to Cart</button>
+        <div className="grid grid-cols-2 mt-12 space-y-4">
+          <div>
+            <img src={book.image} alt={book.title} className="w-78 object-cover rounded" />
+            <h1 className="text-2xl  font-bold mt-4">{book.title}</h1>
+            <div className='rounded-full bg-blue-400 text-white px-4 py-1 mt-2 inline-block'>
+            {book.genre}</div>
+          </div>
+            <div className='ml-12 '>
+            <p className="text-gray-600 mt-2">{book.summary}</p>
+            </div>
         </div>
       )}
     </div>

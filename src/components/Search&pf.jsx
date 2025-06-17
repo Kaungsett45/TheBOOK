@@ -4,7 +4,7 @@ export default function Search() {
   return (
     <>
       
-<form className="max-w-lg mx-auto w-full mt-6">
+<form className="max-w-lg mx-auto w-full ">
   <div className="flex ">
     <label
       htmlFor="search-dropdown"

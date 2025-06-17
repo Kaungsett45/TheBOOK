@@ -1,6 +1,5 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Search from '../components/Search&pf.jsx'
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import './style.css'
 import Nav from '../components/navigation.jsx'
@@ -14,7 +13,7 @@ export default function Layout() {
               <CSSTransition timeout={200} classNames='fade' key={location.pathname}>
             
                   <div className=' flex flex-col items-start ml-12 '>
-                  <Search/>
+                
                     <Outlet/>
                   </div>
               </CSSTransition>
