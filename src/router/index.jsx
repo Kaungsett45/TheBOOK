@@ -8,6 +8,7 @@ import Books from "../pages/Books.jsx";
 import BooksDetail from "../pages/BooksDetail.jsx";
 import TopBooks from "../components/TopBooks.jsx";
 import Authors from "../pages/Authors.jsx";
+import Setting from "../pages/Setting.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         {
             path:"books",
             element:<Books/>
+        },
+        {
+            path:"setting",
+            element:<Setting/>
         },
        
     ]
