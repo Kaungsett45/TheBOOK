@@ -9,6 +9,7 @@ import BooksDetail from "../pages/BooksDetail.jsx";
 import TopBooks from "../components/TopBooks.jsx";
 import Authors from "../pages/Authors.jsx";
 import Setting from "../pages/Setting.jsx";
+import Homedesign from "../components/homedesign.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     children:[
         {
             path:"",
+            element:<Homedesign />
+        },
+        {
+            path:"/books",
             element:<TopBooks/>
         },
         {
@@ -27,10 +32,7 @@ const router = createBrowserRouter([
             path:"/books/:id",
             element:<BooksDetail/>
         },
-        {
-            path:"books",
-            element:<Books/>
-        },
+       
         {
             path:"setting",
             element:<Setting/>

@@ -26,7 +26,7 @@ function TopBooks(){
               
               {!!bsk && (
               
-                <div className="flex flex-wrap space-x-6 space-y-6  m-4 p-4 ">
+                <div className="  scrollbar-hide flex flex-wrap space-x-6 space-y-6  m-4 p-4 ">
                 {bsk.map((book) => (
                 <Link to={`/books/${book.id}`} key={book.id}>
                 <div >
