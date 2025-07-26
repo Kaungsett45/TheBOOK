@@ -1,39 +1,73 @@
 // src/hooks/usefetch.jsx
+
 import { useEffect, useState } from "react";
 
-function useFetch(url) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+function useFetch(url , method = "GET" ) {
+    let [data,setData] = useState(null);
+    let [postData ,setPostData] = useState(null);
+    let [ loading, setLoading ] = useState(false);
+    let [ error, setError ] = useState(null);
 
-  useEffect(() => {
-    const controller = new AbortController();
+    useEffect(() => {
+      let abortController = new AbortController();
+      let signal = abortController.signal;
 
-    const fetchData = async () => {
-      try {
-        const res = await fetch(url, { signal: controller.signal });
-        if (!res.ok) {
-          throw new Error("Failed to fetch data");
+        let options = {
+          signal,
+          method
+        };
+        setLoading(true);
+         const start = Date.now();
+        let fetchData = () => {
+          fetch(url , options)
+          .then(res => {
+            if(!res.ok) {
+              throw Error('something went wrong');
+            }
+            return res.json();
+          })
+          
+          .then(data => {
+            setData(data);
+            setError(null);
+            setLoading(false);
+          })
+          .catch(e => {
+            setError(e.message);
+          })
+          .finally(() => {
+          // Add delay logic
+          const elapsed = Date.now() - start;
+          const minDelay = 5000; // minimum 1 second delay
+          const delay = Math.max(minDelay - elapsed, 0);
+          setTimeout(() => {
+            setLoading(false);
+          }, delay);
+        });
+        
         }
-        const json = await res.json();
-        setData(json);
-        setLoading(false);
-      } catch (err) {
-        if (err.name !== "AbortError") {
-          setError(err.message);
-          setLoading(false);
+        if(method === "POST" && postData) {
+          options = {
+            ...options,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body : JSON.stringify(postData)
+          }
+          fetchData()
         }
-      }
-    };
 
-    fetchData();
+        if(method === "GET") {
+          fetchData();
+        }
+        
 
-    return () => {
-      controller.abort();
-    };
-  }, [url]);
-
-  return { data, loading, error };
+        //cleanup function
+        return () => {
+          abortController.abort();
+        }
+      },[url, postData]);
+    return { setPostData , data , loading , error };
 }
 
 export default useFetch;

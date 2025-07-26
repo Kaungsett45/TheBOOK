@@ -12,7 +12,7 @@ export default function Layout() {
             <SwitchTransition>
               <CSSTransition timeout={200} classNames='fade' key={location.pathname}>
             
-                  <div className=' flex flex-col items-start ml-12 '>
+                  <div className='   flex flex-col items-start ml-12 '>
                 
                     <Outlet/>
                   </div>

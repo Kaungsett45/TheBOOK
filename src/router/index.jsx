@@ -4,11 +4,12 @@ import {
 } from "react-router-dom";
 
 import Layout from "../pages/Layout.jsx";
-import Books from "../pages/Books.jsx";
 import BooksDetail from "../pages/BooksDetail.jsx";
 import TopBooks from "../components/TopBooks.jsx";
 import Authors from "../pages/Authors.jsx";
-import Setting from "../pages/Setting.jsx";
+import Create from "../pages/Create.jsx";
+import Home from "../pages/Home.jsx";
+import Gettingstarted from "../components/gettingstarted.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,14 @@ const router = createBrowserRouter([
     children:[
         {
             path:"",
+            element:<Home />
+        },
+        {
+            path:"/register",
+            element:<Gettingstarted />
+        },
+        {
+            path:"/books",
             element:<TopBooks/>
         },
         {
@@ -27,13 +36,10 @@ const router = createBrowserRouter([
             path:"/books/:id",
             element:<BooksDetail/>
         },
+       
         {
-            path:"books",
-            element:<Books/>
-        },
-        {
-            path:"setting",
-            element:<Setting/>
+            path:"create",
+            element:<Create/>
         },
        
     ]
