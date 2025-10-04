@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom'
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import './style.css'
 import Nav from '../components/navigation.jsx'
-import Books from '../components/TopBooks.jsx'
 export default function Layout() {
   return (
     <>
