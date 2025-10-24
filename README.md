@@ -1,5 +1,5 @@
 # Library Management System
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8ed1f6bf8ea84172bc1f51d70590abf3)](https://app.codacy.com/gh/Kaungsett45/TheBOOK/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 A modern, full-stack library management application built with React and Node.js, featuring a beautiful UI/UX design and comprehensive book management capabilities.
 
 ## 🚀 Features
