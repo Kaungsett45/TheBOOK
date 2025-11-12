@@ -3,45 +3,35 @@ import {
   
 } from "react-router-dom";
 
-import Layout from "../pages/Layout.jsx";
-import BooksDetail from "../pages/BooksDetail.jsx";
-import TopBooks from "../components/TopBooks.jsx";
-import Authors from "../pages/Authors.jsx";
-import Create from "../pages/Create.jsx";
-import Home from "../pages/Home.jsx";
-import Gettingstarted from "../components/gettingstarted.jsx";
+import Index from "../User/pages/index";
+import Home from "../User/pages/Home";
+import Books from "../User/pages/Books";
+
+import Register from "../User/Login&Register/Register";
+import Login from "../User/Login&Register/Login";
 
 const router = createBrowserRouter([
   {
     path: "",
-    element: <Layout/>,
+    element: <Index/>,
     children:[
         {
             path:"",
-            element:<Home />
+            element:<Home/>
         },
         {
             path:"/register",
-            element:<Gettingstarted />
+            element:<Register/>
+        },
+        {
+            path:"/login",
+            element:<Login/>
         },
         {
             path:"/books",
-            element:<TopBooks/>
+            element:<Books/>
         },
-        {
-            path:"authors",
-            element:<Authors/>
-        },
-        {
-            path:"/books/:id",
-            element:<BooksDetail/>
-        },
-       
-        {
-            path:"create",
-            element:<Create/>
-        },
-       
+      
     ]
   },
 ]);
