@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { BookOpen, Users, Star, ArrowRight, Sparkles } from 'lucide-react'
-import bookie from '../assets/books/bookover.png'
-import Homedesign from '../components/homedesign.jsx'
+import bookie from '../../assets/books/bookover.png'
 
 function App() {
     return (
@@ -31,7 +30,7 @@ function App() {
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link 
-                                to="/register" 
+                                to="/login" 
                                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                             >
                                 <BookOpen className="w-5 h-5" />
@@ -118,7 +117,7 @@ function App() {
                 </div>
             </div>
 
-            <Homedesign />
+            
         </div>
     )
 }

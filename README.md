@@ -18,13 +18,15 @@ A modern, full-stack library management application built with React and Node.js
 - **React Router** - Client-side routing
 - **Tailwind CSS** - Utility-first CSS framework
 - **Lucide React** - Beautiful icons
+- **Axios** - HTTP client for API requests
 - **Custom Hooks** - Reusable logic for API calls
 
 ### Backend
 - **Node.js** - JavaScript runtime
 - **Express.js** - Web framework
-- **Prisma** - Database ORM
 - **PostgreSQL** - Database
+- **JWT Authentication** - Secure token-based authentication
+- **bcryptjs** - Password hashing
 - **CORS** - Cross-origin resource sharing
 
 ## 📦 Installation
@@ -43,6 +45,9 @@ cd Library-management
 # Install dependencies
 npm install
 
+# Install axios for API calls
+npm install axios
+
 # Start development server
 npm start
 ```
@@ -57,12 +62,6 @@ npm install
 
 # Set up environment variables
 cp .env.example .env
-
-# Start Prisma database
-npx prisma dev
-
-# Run database migrations
-npx prisma migrate dev
 
 # Start backend server
 npm run dev
@@ -81,11 +80,7 @@ PORT=3000
 ### Database Setup
 1. Start your PostgreSQL database
 2. Update the `DATABASE_URL` in your `.env` file
-3. Run Prisma migrations:
-```bash
-npx prisma migrate dev
-npx prisma generate
-```
+3. Create your database tables as needed
 
 ## 🚦 Getting Started
 
@@ -149,9 +144,8 @@ Library-management/
 │   └── assets/
 ├── Backend/
 │   ├── routes/
-│   ├── prisma/
 │   ├── .env
-│   └── server.js
+│   └── index.js
 └── README.md
 ```
 
@@ -177,16 +171,6 @@ Library-management/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🐛 Troubleshooting
-
-### Database Connection Issues
-- Ensure PostgreSQL is running
-- Check your `DATABASE_URL` in `.env`
-- Run `npx prisma dev` to start the database server
 
 ### Frontend Build Issues
 - Clear node_modules: `rm -rf node_modules && npm install`
@@ -195,13 +179,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Backend Server Issues
 - Verify all dependencies are installed
 - Check if port 3000 is available
-- Ensure database migrations are up to date
+- Ensure database connection is working
 
-## 📞 Support
 
-For support and questions:
-- Create an issue in the repository
-- Contact the development team
-- Check the documentation
-
----
