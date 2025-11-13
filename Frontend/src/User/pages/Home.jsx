@@ -81,42 +81,7 @@ function App() {
                 </div>
             </div>
 
-            {/* Features Section */}
-            <div className="bg-white py-16">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose TheBOOK?</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Everything you need to manage and share your book collection</p>
-                    </div>
-                    
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <div className="text-center p-6 rounded-2xl bg-blue-50 hover:bg-blue-100 transition-colors duration-200">
-                            <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <BookOpen className="w-8 h-8 text-white" />
-                            </div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Easy Management</h3>
-                            <p className="text-gray-600">Organize your books with categories, descriptions, and personal notes</p>
-                        </div>
-                        
-                        <div className="text-center p-6 rounded-2xl bg-indigo-50 hover:bg-indigo-100 transition-colors duration-200">
-                            <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <Users className="w-8 h-8 text-white" />
-                            </div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Community Driven</h3>
-                            <p className="text-gray-600">Connect with fellow book lovers and discover new recommendations</p>
-                        </div>
-                        
-                        <div className="text-center p-6 rounded-2xl bg-purple-50 hover:bg-purple-100 transition-colors duration-200">
-                            <div className="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <Star className="w-8 h-8 text-white" />
-                            </div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Showcase Collection</h3>
-                            <p className="text-gray-600">Display your favorite books and build your reading profile</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+          
             
         </div>
     )

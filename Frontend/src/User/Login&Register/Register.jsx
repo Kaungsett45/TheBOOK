@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, User, Mail, Lock, Eye, EyeOff } from 'lucide-react';
-
+import api from '../../axios/axios';
 export default function Register() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
-        confirmPassword: ''
+      
     });
     const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState({ type: '', text: '' });
 
@@ -23,42 +22,18 @@ export default function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        if (formData.password !== formData.confirmPassword) {
-            setMessage({ type: 'error', text: 'Passwords do not match' });
-            return;
-        }
-        
+        setIsLoading(true);
         setMessage({ type: '', text: '' });
         
-        setIsLoading(true);
-        
         try {
-            const response = await fetch('http://localhost:3000/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name : formData.name,
-                    email: formData.email,
-                    password: formData.password
-                })
+            const res = await api.post("/auth/register", formData);
+            setMessage({ type: "success", text: res.data.message || "Registered successfully!" });
+            setFormData({ name: "", email: "", password: "" });
+        } catch (err) {
+            setMessage({ 
+                type: "error", 
+                text: err.response?.data?.message || "Registration failed!" 
             });
-            
-            const data = await response.json();
-            
-            if (response.ok) {
-                setMessage({ type: 'success', text: 'Registration successful! Redirecting to login...' });
-                setTimeout(() => {
-                    window.location.href = '/login';
-                }, 2000);
-            } else {
-                setMessage({ type: 'error', text: data.message || 'Registration failed' });
-            }
-        } catch (error) {
-            console.error('Registration error:', error);
-            setMessage({ type: 'error', text: 'Registration failed. Please try again.' });
         } finally {
             setIsLoading(false);
         }
@@ -146,31 +121,7 @@ export default function Register() {
                         </div>
                     </div>
 
-                    {/* Confirm Password Field */}
-                    <div className="space-y-2">
-                        <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                            <Lock className="w-4 h-4 text-blue-600" />
-                            Confirm Password
-                        </label>
-                        <div className="relative">
-                            <input
-                                type={showConfirmPassword ? "text" : "password"}
-                                name="confirmPassword"
-                                value={formData.confirmPassword}
-                                onChange={handleChange}
-                                className="w-full px-4 py-3 pr-12 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                                placeholder="Confirm your password"
-                                required
-                            />
-                            <button
-                                type="button"
-                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                            >
-                                {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                            </button>
-                        </div>
-                    </div>
+                   
 
                     {/* Submit Button */}
                     <button

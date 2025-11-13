@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import api from '../../axios/axios';
 import { BookOpen, Mail, Lock, Eye, EyeOff, LogIn } from 'lucide-react';
 
 export default function Login() {
@@ -18,41 +19,34 @@ export default function Login() {
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setMessage({ type: '', text: '' });
-        setIsLoading(true);
-        
-        try {
-            const response = await fetch('http://localhost:3000/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: formData.email,
-                    password: formData.password
-                })
-            });
-            
-            const data = await response.json();
-            
-            if (response.ok) {
-                setMessage({ type: 'success', text: 'Login successful! Redirecting...' });
-                localStorage.setItem('token', data.token);
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 2000);
-            } else {
-                setMessage({ type: 'error', text: data.message || 'Login failed' });
-            }
-        } catch (error) {
-            console.error('Login error:', error);
-            setMessage({ type: 'error', text: 'Login failed. Please try again.' });
-        } finally {
-            setIsLoading(false);
-        }
-    };
+   const handleSubmit = async (e) => {
+  e.preventDefault();
+  setMessage({ type: "", text: "" });
+  setIsLoading(true);
+
+  try {
+    const res = await api.post("/auth/login", {
+      email: formData.email,
+      password: formData.password,
+    });
+
+    setMessage({ type: "success", text: "Login successful! Redirecting..." });
+    localStorage.setItem("token", res.data.token);
+    console.log("Login successful:", res.data.token);
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 2000);
+
+  } catch (err) {
+    console.error("Login error:", err);
+    setMessage({
+      type: "error",
+      text: err.response?.data?.message || "Login failed. Please try again.",
+    });
+  } finally {
+    setIsLoading(false);
+  }
+};
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center py-12 px-4">
