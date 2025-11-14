@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, User, Mail, Lock, Eye, EyeOff } from 'lucide-react';
-import api from '../../axios/axios';
+import api from '../../../axios/axios';
 export default function Register() {
     const [formData, setFormData] = useState({
         name: '',

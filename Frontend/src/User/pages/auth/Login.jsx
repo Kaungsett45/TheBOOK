@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../axios/axios';
+import api from '../../../axios/axios';
 import { BookOpen, Mail, Lock, Eye, EyeOff, LogIn } from 'lucide-react';
 
 export default function Login() {

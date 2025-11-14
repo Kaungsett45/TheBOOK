@@ -1,14 +1,24 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { BookOpen, Search, Menu, X, User, Settings, Plus, LogOut, Heart, ShoppingCart } from 'lucide-react';
-import Drop from './dropdown.jsx';
-import Adsone from '../../../assets/icon/ads-one.png';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { BookOpen} from 'lucide-react';
 
 export default function navigation() {
     const wrapperRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
+
+
+    const navigate = useNavigate();
+    
+     const token = localStorage.getItem('token');
+     const isLoggedIn =!!token;
+
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+         navigate("/");
+  };
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -74,13 +84,22 @@ export default function navigation() {
                     <div className="flex items-center gap-3">
                         {/* Auth Buttons */}
                         <div className="flex items-center gap-2">
+                            {isLoggedIn ? (
+                            <Link 
+                                to="/" 
+                                className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium rounded-xl hover:bg-blue-50 transition-all duration-200"
+                                onClick={handleLogout}
+                           >
+                                Logout
+                            </Link>
+                            ):(
                             <Link 
                                 to="/login" 
                                 className="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium rounded-xl hover:bg-blue-50 transition-all duration-200"
                             >
                                 Login
                             </Link>
-                          
+                            )}
                         </div>
 
                        

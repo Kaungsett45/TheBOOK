@@ -3,22 +3,18 @@ import {
   
 } from "react-router-dom";
 
-import Index from "../User/pages/index";
-import Home from "../User/pages/Home";
+import Index from "../User/pages/Home";
 import Books from "../User/pages/Books";
 
-import Register from "../User/Login&Register/Register";
-import Login from "../User/Login&Register/Login";
+import Register from "../User/pages/auth/Register";
+import Login from "../User/pages/auth/Login";
 
 const router = createBrowserRouter([
   {
     path: "",
     element: <Index/>,
     children:[
-        {
-            path:"",
-            element:<Home/>
-        },
+       
         {
             path:"/register",
             element:<Register/>
