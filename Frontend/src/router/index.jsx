@@ -8,6 +8,7 @@ import Books from "../User/pages/Books";
 
 import Register from "../User/pages/auth/Register";
 import Login from "../User/pages/auth/Login";
+import HeroLanding from "../User/components/HeroLanding";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     element: <Index/>,
     children:[
        
+        {
+            path:"",
+            element:<HeroLanding/>
+        },
         {
             path:"/register",
             element:<Register/>

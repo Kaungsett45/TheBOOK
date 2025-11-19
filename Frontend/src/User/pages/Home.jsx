@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet , Link, useNavigate } from 'react-router-dom'
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import '../../Layout/style.css'
-import Nav from '../components/Navigation'
+import Nav from '../components/navigation';
 import UserDashboard from '../components/UserDashboard';
 export default function Layout() {
   
